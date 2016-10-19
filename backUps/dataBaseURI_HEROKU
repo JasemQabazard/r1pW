@@ -1,0 +1,8 @@
+web address
+thawing-hamlet-15052.herokuapp.com
+URI
+mongodb://<dbuser>:<dbpassword>@ds061506.mlab.com:61506/heroku_d50wccgm
+mongodb://heroku_d50wccgm:aa7bio2l623285rim9jl76sr7n@ds061506.mlab.com:61506/heroku_d50wccgm
+Mongo connect
+mongo ds061506.mlab.com:61506/heroku_d50wccgm -u <dbuser> -p <dbpassword>
+mongo ds061506.mlab.com:61506/heroku_d50wccgm -u heroku_d50wccgm -p aa7bio2l623285rim9jl76sr7n
