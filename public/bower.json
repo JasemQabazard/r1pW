@@ -1,0 +1,37 @@
+{
+  "name": "read1page",
+  "description": "Quran Group Recital",
+  "main": "index.html",
+  "authors": [
+    "Jasem Qabazard <jasemqabazard@yahoo.com>"
+  ],
+  "license": "r1p",
+  "keywords": [
+    "r1p",
+    "success",
+    "architecture",
+    "jasem",
+    "qabazard",
+    "quran",
+    "recital"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "bootstrap-social": "^5.0.0",
+    "angular": "^1.5.8",
+    "animate.css": "^3.5.2",
+    "angular-validation-match": "^1.9.0"
+  },
+  "resolutions": {
+    "font-awesome": "^4.6.3"
+  }
+}
