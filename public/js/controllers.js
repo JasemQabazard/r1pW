@@ -230,7 +230,7 @@ angular.module('r1p')
                 - the no of fatihas read app wide
         */
         $scope.aboutRecital = function () {
-            $http.get('/recitots',{cache: false})
+            $http.get('/recitots', { headers: { 'Cache-Control': 'no-cache' } })
                     .success(function (recitots) {
                         console.log(recitots);
                         $scope.showAbout = !$scope.showAbout;
