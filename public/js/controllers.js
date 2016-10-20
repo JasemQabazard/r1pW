@@ -247,6 +247,7 @@ angular.module('r1p')
         $scope.aboutRecital = function () {
             $http.get('/recitots')
                     .success(function (recitots) {
+                        console.log(recitots);
                         $scope.showAbout = !$scope.showAbout;
                         $scope.showR1Pbtn = !$scope.showR1Pbtn;
                         $scope.elepicalMenu = !$scope.elepicalMenu;

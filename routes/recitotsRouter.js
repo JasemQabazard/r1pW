@@ -22,6 +22,7 @@ recitotsRouter.route('/')
                 res.json(recitots);
             });
         } else {
+            console.log(recitots);
             res.json(recitots);
         }
     });
