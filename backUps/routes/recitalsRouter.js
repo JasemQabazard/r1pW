@@ -10,7 +10,6 @@ recitalsRouter.use(bodyParser.json());
 
 recitalsRouter.post('/newcode', function (req, res, next) {
     // if new recital code exists then return error
-    console.log(req.body);
     Recitals.findOne({ code: req.body.generatedCode }, function (err, recital) {
         if (err) return next(err);
         if (recital) {
@@ -47,7 +46,6 @@ recitalsRouter.post('/newcode', function (req, res, next) {
                 if (error) {
                     next(err);
                 } else {
-                    console.log('Recital code email sent');
                     res.status(200).json({
                         status: 'Recital Code Generation and Message Sent' + info.response,
                         success: true
@@ -75,7 +73,6 @@ recitalsRouter.get('/:crc', function (req, res, next) {
 });
 
 recitalsRouter.post('/read1', function (req, res, next) {
-    console.log(req.body.generatedCode);
     Recitals.findOne({ code: req.body.generatedCode }, function (err, recital) {
         if (err) return next(err);
         if (!recital) {
@@ -103,7 +100,6 @@ recitalsRouter.post('/read1', function (req, res, next) {
             }
             ReciTots.findOne(function (err, recitots) {
                 if (!recitots) {
-                    console.log('I am saving new recitots');
                     var recitots = new ReciTots({});
                     recitots.codes = 0;
                     recitots.recitals = 0;
@@ -119,8 +115,6 @@ recitalsRouter.post('/read1', function (req, res, next) {
                 recitots.save();
             });
             recital.save(function (err, recita) {
-                console.log(recita);
-                console.log(oldPageNo);
                 recita.page = oldPageNo;
                 res.json(recita);
             });

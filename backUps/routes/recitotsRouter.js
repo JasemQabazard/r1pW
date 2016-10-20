@@ -12,7 +12,6 @@ recitotsRouter.route('/')
     ReciTots.findOne(function (err, recitots) {
         if (err) return next(err);
         if (!recitots) {
-            console.log('I am saving new recitots');
             var recitots = new ReciTots({});
             recitots.codes = 0;
             recitots.recitals = 0;

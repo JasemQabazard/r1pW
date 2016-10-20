@@ -7,7 +7,8 @@ angular.module('r1p')
     .controller('IndexController', ['$scope', '$location', '$http', '$rootScope', 'codeGenerationService', '$timeout', '$localStorage',
                                     function ($scope, $location, $http, $rootScope, codeGenerationService, $timeout, $localStorage) {
 
-        // key to store current recital code in local storage
+        $scope.showBody = false;
+                                        // key to store current recital code in local storage
         var CURRENT_RECITAL_CODE = "CurrentRecitalCode";
 
         // key to stores an object in the localstorage for current reading
@@ -75,8 +76,8 @@ angular.module('r1p')
             $scope.humanCheck = $localStorage.get(BEHAVIOR, '');
             if (!$scope.humanCheck) {
                 $scope.humanCheck = 0;
-                console.log($scope.humanCheck);
             }
+            $scope.showBody = true;
             if ($scope.humanCheck < 3) {
                 $scope.showCaptcha = true;
             } else {
@@ -85,14 +86,13 @@ angular.module('r1p')
             }
         };
 
-        $timeout(initStart, 1000);
+        $timeout(initStart, 500);
 
         $scope.CaptchaEntry = function () {
             //
             // CAPTCHA pass false is pass 
             //
             var captchaResponse = grecaptcha.getResponse();
-            console.log(captchaResponse.length);
             if (captchaResponse.length === 0) {
                 $scope.CAPTCHANOTPASS = true;
                 grecaptcha.reset();
@@ -104,7 +104,6 @@ angular.module('r1p')
                 };
                 $http.post('/security', recap)
                     .success(function () {
-                        console.log('back from security');
                         $scope.CAPTCHANOTPASS = false;
                         $scope.showR1Pbtn = true;
                         $scope.elepicalMenu = true;
@@ -211,10 +210,8 @@ angular.module('r1p')
         $scope.RecitalGeneration = function () {
             $scope.showSpinner = true;
             $scope.newCodeData.generatedCode = codeGenerationService.codeGen();
-            console.log($scope.newCodeData);
             $http.post('/recitals/newcode', $scope.newCodeData)
                     .success(function (recital) {
-                        console.log(recital);
                         $scope.newCodeCompleted = true;
                         $scope.disabledNewCodeForm = true;
                         $timeout(lapseTimer, 5000);
@@ -235,7 +232,6 @@ angular.module('r1p')
         $scope.aboutRecital = function () {
             $http.get('/recitots')
                     .success(function (recitots) {
-                        console.log(recitots);
                         $scope.showAbout = !$scope.showAbout;
                         $scope.showR1Pbtn = !$scope.showR1Pbtn;
                         $scope.elepicalMenu = !$scope.elepicalMenu;
@@ -278,15 +274,12 @@ angular.module('r1p')
         */
         $scope.readPages = function () {
             $scope.currentRecitalRead = $localStorage.getObject(CURREENT_READING, '{}');
-            console.log('1 As read from local storage');
-            console.log($scope.currentRecitalRead);
             if ($scope.currentRecitalRead.code === undefined) {
                 $scope.crc = $localStorage.get(CURRENT_RECITAL_CODE, '');   // get the recital code from local storage
                 if (!$scope.crc) {
                     $scope.crc = "KHATMA";
                     $localStorage.store(CURRENT_RECITAL_CODE, $scope.crc);
                 }
-                console.log('YOUR CRC = ' + $scope.crc);
                 $scope.newCodeData.generatedCode = $scope.crc;
                 $http.post('/recitals/read1', $scope.newCodeData)
                     .success(function (recital) {
@@ -313,8 +306,6 @@ angular.module('r1p')
         var setUpInitialRead = function () {
             var n = 1;
             $scope.pagePointer = 0;
-            console.log('As per the setUpInitialRead');
-            console.log($scope.currentRecitalRead);
             if (!$scope.currentRecitalRead.fatiha) {
                 n = $scope.currentRecitalRead.page;
                 $scope.pagePointer = n;
@@ -325,14 +316,11 @@ angular.module('r1p')
             $scope.showReadPointers = true;
         };
         $scope.movePagesLeft = function () {
-            console.log($scope.pagePointer);
-            console.log($scope.currentRecitalRead);
             if ($scope.pagePointer == 0) {
                 $scope.pagePointer = $scope.currentRecitalRead.page;
             } else if ($scope.pagePointer < $scope.currentRecitalRead.page + $scope.currentRecitalRead.pages -1) {
                 $scope.pagePointer++;
             }
-            console.log($scope.pagePointer);
             $scope.myStyle.background = 'url("../images/' + $scope.pagePointer + '.png") no-repeat center top scroll';
         };
         $scope.movePagesRight = function () {

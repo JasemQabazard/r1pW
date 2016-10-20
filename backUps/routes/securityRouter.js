@@ -17,7 +17,6 @@ securityRouter.post('/', function (req, res, next) {
             }
         }, function (error, response, body) {
             body = JSON.parse(body);
-            console.log(body);
             // Success will be true or false depending upon captcha validation.
             if (body.success) {
                 res.status(200).json({

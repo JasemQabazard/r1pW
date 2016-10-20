@@ -17,8 +17,6 @@ body {
     font-weight:bolder;
 }
 .RecitalForms {
-    border:1px solid red;
-    background-color:antiquewhite;
     margin-left:30px;
 }
 .menu-1 {
@@ -49,4 +47,10 @@ body {
             padding:4px;
             line-height: 1.2;
             border-radius:3px;}
+   .RecitalForms {
+        margin-left:0px;
+        transform:scale(0.77);
+        -webkit-transform:scale(0.77);
+        transform-origin:0 0;
+        -webkit-transform-origin:0 0;}
 }

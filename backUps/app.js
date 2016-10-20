@@ -9,11 +9,17 @@ var mongoose = require('mongoose');
 var config = require('./config');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.mongoUrl);
+var dbURI = config.mongoUrl;
+if (process.env.NODE_ENV === "production") {
+    dbURI = process.env.MONGODB_URI;
+}
+mongoose.connect(dbURI);
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
     // we're connected!
+    console.log(process.env.NODE_ENV);
     console.log("Connected correctly to RecitalsDB DataBase Sever-------------");
 });
 
@@ -43,8 +49,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-process.env.NODE_ENV = "development";
-console.log(process.env.NODE_ENV);
 
 // development error handler
 // will print stacktrace
