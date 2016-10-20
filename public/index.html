@@ -26,6 +26,17 @@
     <!-- http://angular-ui.github.io/bootstrap/ for full information about ui-Bootstrap and how to use a subset of the angular bootstrap-->
     <link href="bower_components/ui-bootstrap/ui-bootstrap-custom-2.2.0-csp.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet"> <!-- our site style sheet -->
+    <!-- build:js js/main.js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script> <!-- jquery libraries -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> <!-- bootsrap libraries -->
+    <script src="bower_components/angular/angular.min.js"></script> <!-- AngularJS 1.5.8 libraries -->
+    <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+    <script src="bower_components/ui-bootstrap/ui-bootstrap-custom-tpls-2.2.0.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="js/r1p.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <!-- endbuild -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -78,16 +89,16 @@
         <!-- RECAPTCHA FORM-->
         <!---->
         <form class="form-horizontal" ng-show="showCaptcha" role="form" name="CaptchaForm" ng-submit="CaptchaEntry()" novalidate>
-            <div class="col-xs-push-2 col-xs-7 RecitalForms">
-                <br /><br /><br />
+            <div class="col-xs-7 RecitalForms">
+                <br /><br />
                 <div class="form-group" ng-class="{'has-error': CAPTCHANOTPASS}">
-                    <div class="col-sm-offset-2">
+                    <div class="col-sm-offset-1">
                         <div class="g-recaptcha" data-sitekey="6LflUAkUAAAAAMifBeZ0Nv6U1UFD1aK9xFsJCUwp"></div>
                         <span ng-show="CAPTCHANOTPASS" class="help=block error">You are NOT HUMAN!!! What Are You? :)</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-9">
+                    <div class="col-sm-offset-7">
                         <button type="submit" class="btn btn-md btn-default btn-send" ng-disabled="CaptchaForm.$invalid">Send</button>
                     </div>
                 </div>
@@ -172,7 +183,7 @@
                         Holly Quran.
                         Please include your brother moslims in your prayers.
                         </p>
-                    <p>Regards, Jasem Qabazard, SuccessArchitecture.com</p>
+                    <p>Regards, Jasem Qabazard, <a href="www.successarchitecture.com">SuccessArchitecture.com</a></p>
                     <br />
                 </div>
                     <div class="col-xs-12 col-sm-offset-1 col-sm-10">
@@ -451,19 +462,5 @@
                 </div>
             </form>
         </div>
-
-
-
-    <!-- build:js js/main.js -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script> <!-- jquery libraries -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> <!-- bootsrap libraries -->
-    <script src="bower_components/angular/angular.min.js"></script> <!-- AngularJS 1.5.8 libraries -->
-    <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
-    <script src="bower_components/ui-bootstrap/ui-bootstrap-custom-tpls-2.2.0.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="js/r1p.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/controllers.js"></script>
-    <!-- endbuild -->
 </body>
 </html>
