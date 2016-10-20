@@ -7,7 +7,8 @@ angular.module('r1p')
     .controller('IndexController', ['$scope', '$location', '$http', '$rootScope', 'codeGenerationService', '$timeout', '$localStorage',
                                     function ($scope, $location, $http, $rootScope, codeGenerationService, $timeout, $localStorage) {
 
-        // key to store current recital code in local storage
+        $scope.showBody = false;
+                                        // key to store current recital code in local storage
         var CURRENT_RECITAL_CODE = "CurrentRecitalCode";
 
         // key to stores an object in the localstorage for current reading
@@ -76,6 +77,7 @@ angular.module('r1p')
             if (!$scope.humanCheck) {
                 $scope.humanCheck = 0;
             }
+            $scope.showBody = true;
             if ($scope.humanCheck < 3) {
                 $scope.showCaptcha = true;
             } else {
@@ -84,7 +86,7 @@ angular.module('r1p')
             }
         };
 
-        $timeout(initStart, 1000);
+        $timeout(initStart, 500);
 
         $scope.CaptchaEntry = function () {
             //
