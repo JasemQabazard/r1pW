@@ -230,7 +230,7 @@ angular.module('r1p')
                 - the no of fatihas read app wide
         */
         $scope.aboutRecital = function () {
-            $http.get('/recitots')
+            $http.get('/recitots',{cache: false})
                     .success(function (recitots) {
                         console.log(recitots);
                         $scope.showAbout = !$scope.showAbout;
