@@ -9,7 +9,7 @@ recitotsRouter.use(bodyParser.json());
 // retrieve the stats table record
 recitotsRouter.route('/')
 .get(function (req, res, next) {
-    console.log('I am at recitots');
+    console.log('I am at recitotsRouter');
     ReciTots.findOne(function (err, recitots) {
         console.log('found recitots');
         if (err) return next(err);
