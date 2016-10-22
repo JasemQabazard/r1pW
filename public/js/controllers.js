@@ -252,7 +252,6 @@ angular.module('r1p')
         $scope.aboutRecital = function () {
             $http.get('/recitots', { headers: { 'Cache-Control': 'no-cache' } })
                     .success(function (recitots) {
-                        console.log(recitots);
                         $scope.showAbout = !$scope.showAbout;
                         $scope.showR1Pbtn = !$scope.showR1Pbtn;
                         $scope.elepicalMenu = !$scope.elepicalMenu;
