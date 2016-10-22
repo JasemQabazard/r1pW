@@ -1,7 +1,7 @@
 html {
     margin:    0 auto;
     max-width: 755px;
-    max-height: 1080px;
+    min-height: 100%;
 }
 body {
     background-color:azure;
@@ -9,6 +9,9 @@ body {
 .verMenu{
     color:red;
     margin-left:30px;
+}
+#extraHeight{
+    height:600px;
 }
 #r1pbtn{
     margin-left:20px;
@@ -29,12 +32,20 @@ body {
     color:brown;
     font-size:14px;
 }
+.progressText {
+    color:blue;
+    font-weight:bold;
+}
 #pagesDiv{
     background-color:ButtonFace;
     border:1px solid brown;
 }
 .btnNav {
     margin-right:3px;
+}
+@media screen and (max-width: 700px) {
+        #extraHeight{
+        height:425px;}
 }
 @media screen and (max-width: 500px) {
    #r1pbtn { font-size: 12px;
@@ -53,4 +64,6 @@ body {
         -webkit-transform:scale(0.77);
         transform-origin:0 0;
         -webkit-transform-origin:0 0;}
+    #extraHeight{
+        height:50px;}
 }

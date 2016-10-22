@@ -55,7 +55,11 @@ angular.module('r1p')
             pagesTotal: 0,
             fatihas: 0
         };
-            
+        $scope.progressPercentages = {
+            K1: 0,
+            K2: 0,
+            K5: 0
+        };
         // flags to show/ hide/ disable various forms, messages and the READ bnutton
         $scope.showR1Pbtn = false;
         $scope.elepicalMenu = false;
@@ -84,9 +88,25 @@ angular.module('r1p')
                 $scope.showR1Pbtn = true;
                 $scope.elepicalMenu = true;
             }
+            $scope.recitalCode = "KHATMA";
+            $http.get('/recitals/' + $scope.recitalCode)
+                .success(function (recital) {
+                    $scope.progressPercentages.K1 = (100 * (recital.page / 604)).toFixed(0);
+                    $scope.recitalCode = "KHATM2";
+                    $http.get('/recitals/' + $scope.recitalCode)
+                        .success(function (recital) {
+                            $scope.progressPercentages.K2 = (100 * (recital.page / 604)).toFixed(0);
+                            $scope.recitalCode = "KHATM5";
+                            $http.get('/recitals/' + $scope.recitalCode)
+                            .success(function (recital) {
+                                $scope.progressPercentages.K5 = (100 * (recital.page / 604)).toFixed(0);
+                                $scope.recitalCode = "";
+                            })
+                        })
+                });
         };
 
-        $timeout(initStart, 500);
+        $timeout(initStart, 250);
 
         $scope.CaptchaEntry = function () {
             //
@@ -311,7 +331,7 @@ angular.module('r1p')
                 n = $scope.currentRecitalRead.page;
                 $scope.pagePointer = n;
             }
-            $scope.myStyle.background = 'url("../images/' + n + '.png") no-repeat center top scroll';
+            $scope.myStyle.background = 'url("../images/' + n + '.jpg") no-repeat center top scroll';
             $scope.showR1Pbtn = false;
             $scope.elepicalMenu = false;
             $scope.showReadPointers = true;
@@ -322,7 +342,7 @@ angular.module('r1p')
             } else if ($scope.pagePointer < $scope.currentRecitalRead.page + $scope.currentRecitalRead.pages -1) {
                 $scope.pagePointer++;
             }
-            $scope.myStyle.background = 'url("../images/' + $scope.pagePointer + '.png") no-repeat center top scroll';
+            $scope.myStyle.background = 'url("../images/' + $scope.pagePointer + '.jpg") no-repeat center top scroll';
         };
         $scope.movePagesRight = function () {
             if ($scope.pagePointer == 0) {
@@ -330,7 +350,7 @@ angular.module('r1p')
             } else if ($scope.pagePointer > $scope.currentRecitalRead.page) {
                 $scope.pagePointer--;
             }
-            $scope.myStyle.background = 'url("../images/' + $scope.pagePointer + '.png") no-repeat center top scroll';
+            $scope.myStyle.background = 'url("../images/' + $scope.pagePointer + '.jpg") no-repeat center top scroll';
         };
         $scope.finishedCurrentRead = function () {
             $scope.currentRecitalRead.page = 0;

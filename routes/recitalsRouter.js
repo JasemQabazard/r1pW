@@ -60,10 +60,7 @@ recitalsRouter.get('/:crc', function (req, res, next) {
     Recitals.findOne({ code: req.params.crc }, function (err, recital) {
         if (err) return next(err);
         if (recital) {
-            res.status(200).json({
-                status: 'Recital Code Generation and Message Sent',
-                success: true
-            });
+            res.json(recital);
         } else {
             res.status(500).json({
                 err: 'Recital Code does not Exists'
@@ -76,10 +73,26 @@ recitalsRouter.post('/read1', function (req, res, next) {
     Recitals.findOne({ code: req.body.generatedCode }, function (err, recital) {
         if (err) return next(err);
         if (!recital) {
-            if (req.body.generatedCode = "KJHATMA") {
+            if (req.body.generatedCode = "KHATMA") {
+                var recite = new Recitals({});
+                recite.code = "KHATM2";
+                recite.page = 1;
+                recite.pages = 2;
+                recite.fatiha = true;
+                recite.save(function (err, recite) {
+                    if (err) return next(err);
+                });
+                var rec = new Recitals({});
+                rec.code = "KHATM5";
+                rec.page = 1;
+                rec.pages = 5;
+                rec.fatiha = true;
+                rec.save(function (err, rec) {
+                    if (err) return next(err);
+                });
                 var recital = new Recitals({});
                 recital.code = "KHATMA";
-                recital.page = 1;
+                recital.page = 33;
                 recital.pages = 1;
                 recital.fatiha = true;
                 recital.save(function (err, recital) {
