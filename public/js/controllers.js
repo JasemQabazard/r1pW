@@ -340,6 +340,7 @@ angular.module('r1p')
                 $scope.pagePointer = $scope.currentRecitalRead.page;
             } else if ($scope.pagePointer < $scope.currentRecitalRead.page + $scope.currentRecitalRead.pages -1) {
                 $scope.pagePointer++;
+                if ($scope.pagePointer > 604) $scope.pagePointer--;
             }
             $scope.myStyle.background = 'url("../images/' + $scope.pagePointer + '.jpg") no-repeat center top scroll';
         };
