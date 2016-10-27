@@ -70,7 +70,7 @@ recitalsRouter.get('/:crc', function (req, res, next) {
 });
 
 recitalsRouter.post('/read1', function (req, res, next) {
-    Recitals.findOne({ code: req.body.generatedCode }, function (err, recital) {
+    Recitals.findOne({ code: req.body.crc }, function (err, recital) {
         if (err) return next(err);
         if (!recital) {
             if (req.body.generatedCode = "KHATMA") {

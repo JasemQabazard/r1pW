@@ -1,0 +1,39 @@
+﻿<div ng-controller="ReadController">
+    <main ng-init="readPages()">
+        <div class="row row-content">
+            <div>
+                <img class="img-responsive" id="verseImg" src="{{imgSrc}}" alt="quran verse image">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="row row-content">
+            <!--
+            Container Fluid class spans the entire nwidth of the page
+            where as container takes a certain width of the page -->
+            <nav class="nav navbar navbar-default" role="navigation">
+                <!--    start of collapsed nav bar -->
+                <ul class="nav nav-pills">
+                    <li>
+                        <a ng-click="movePagesLeft()">
+                            <i class="fa fa-chevron-left fa-2x btn-responsive" aria-hidden="true" style="color:brown"
+                               data-toggle="tooltip" uib-tooltip="Next Page" tooltip-placement="left"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="movePagesRight()">
+                            <i class="fa fa-chevron-right fa-2x btn-responsive" aria-hidden="true" style="color:blue"
+                               data-toggle="tooltip" uib-tooltip="Previous Page" tooltip-placement="left"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="finishedCurrentRead()">
+                            <i class="fa fa-check fa-2x btn-responsive" aria-hidden="true" style="color:forestgreen"
+                               data-toggle="tooltip" uib-tooltip="Press When Completed Read" tooltip-placement="left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</div>

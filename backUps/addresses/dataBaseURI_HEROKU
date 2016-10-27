@@ -6,3 +6,7 @@ mongodb://heroku_d50wccgm:aa7bio2l623285rim9jl76sr7n@ds061506.mlab.com:61506/her
 Mongo connect
 mongo ds061506.mlab.com:61506/heroku_d50wccgm -u <dbuser> -p <dbpassword>
 mongo ds061506.mlab.com:61506/heroku_d50wccgm -u heroku_d50wccgm -p aa7bio2l623285rim9jl76sr7n
+
+$ git add .
+$ git commit -m "Commit message here"
+$ git push heroku master

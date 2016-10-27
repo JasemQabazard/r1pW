@@ -1,0 +1,69 @@
+html {
+    margin:    0 auto;
+    max-width: 755px;
+    min-height: 100%;
+}
+body {
+    background-color:azure;
+}
+.verMenu{
+    color:red;
+    margin-left:30px;
+}
+#extraHeight{
+    height:600px;
+}
+#r1pbtn{
+    margin-left:20px;
+    color:brown;
+    font-size: 20px;
+    font-weight:bolder;
+}
+.RecitalForms {
+    margin-left:30px;
+}
+.menu-1 {
+    background-color:ButtonFace;
+}
+.cancelBtn {
+       margin-top:5px !important;
+}
+.enterRecitalText {
+    color:brown;
+    font-size:14px;
+}
+.progressText {
+    color:blue;
+    font-weight:bold;
+}
+#pagesDiv{
+    background-color:ButtonFace;
+    border:1px solid brown;
+}
+.btnNav {
+    margin-right:3px;
+}
+@media screen and (max-width: 700px) {
+        #extraHeight{
+        height:425px;}
+}
+@media screen and (max-width: 500px) {
+   #r1pbtn { font-size: 12px;
+             margin-left:0px !important; 
+             padding:4px;}
+   .verMenu{
+        margin-left:10px;}
+   .btn-responsive {
+          margin:0px;
+            padding:4px;
+            line-height: 1.2;
+            border-radius:3px;}
+   .RecitalForms {
+        margin-left:0px;
+        transform:scale(0.77);
+        -webkit-transform:scale(0.77);
+        transform-origin:0 0;
+        -webkit-transform-origin:0 0;}
+    #extraHeight{
+        height:50px;}
+}

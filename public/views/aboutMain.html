@@ -1,0 +1,46 @@
+﻿<main ng-controller="AboutController">
+    <div class="row row-content">
+        <!---->
+        <!--ABOUT US-->
+        <!---->
+        <form class="form-horizontal" role="form" name="aboutForm" ng-init="aboutR1P()" ng-submit="hideAbout()">
+            <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-10">
+                    <h1>About us</h1>
+                    <p>
+                        I launched the first site for this application on 2010, as Read1Page.com.
+                        This release expands the application to further generate recital codes so
+                        that you can share a reciotyal with your friends or your family when you
+                        wish to do so.
+                        The idea is meant to be simple while secure, hence a compromise was made
+                        to make the recital code short and not have user sign on. The email entry
+                        is there to send you the recital code you generate via email once, we are
+                        not storing your email or using it for any other purpose. The general
+                        reecital code is the default for everyone to share a global recital of the
+                        Holly Quran.
+                        Please include your brother moslims in your prayers.
+                    </p>
+                    <p>Regards, JasemQabazard@yahoo.com, <a href="http://www.successarchitecture.com">Success Architecture</a></p>
+                    <br />
+                </div>
+                <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+                    <p><strong>Total Generated Codes: {{aboutInfo.codesGenerated}}</strong></p>
+                </div>
+                <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+                    <p><strong>Total Completed Recitals: {{aboutInfo.recitalsTotal}}</strong></p>
+                </div>
+                <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+                    <p><strong>Total Page Reads: {{aboutInfo.pagesTotal}}</strong></p>
+                </div>
+                <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+                    <p><strong>Total Fatiha Reads: {{aboutInfo.fatihas}}</strong></p>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-5 col-xs-6 col-sm-offset-7 col-sm-4">
+                        <button type="submit" class="btn btn-default btn-sm btn-block btn-send">OK</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
