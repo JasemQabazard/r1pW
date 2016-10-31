@@ -38,7 +38,7 @@ angular.module('r1p')
             if (!$scope.humanCheck) {
                 $scope.humanCheck = 0;
             }
-            if ($scope.humanCheck < 3) {
+            if ($scope.humanCheck < 1) {
                 $location.path('/captcha');
             }
         };

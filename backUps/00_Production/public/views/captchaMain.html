@@ -1,0 +1,37 @@
+﻿<main ng-controller="IndexController">
+    <div class="row row-content">
+        <!---->
+        <!-- RECAPTCHA FORM-->
+        <!---->
+        <form class="form-horizontal" role="form" name="CaptchaForm" ng-submit="CaptchaEntry()" novalidate>
+                <br /><br /><br /><br /><br />
+            <div class="col-xs-11 captchaStyle">
+                <div class="form-group">
+                    <div class=" col-xs-offset-2">
+                        <h1>Registration</h1>
+                        <p>Please register by passing the google recaptch challenge, you will only be prompted for recaptch the first 3 times you use read 1 page site</p>
+                        <p>This is required for security purposes and to prevent miss use of the site by robotic programs</p>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': CAPTCHANOTPASS}">
+                    <div class="col-xs-offset-2">
+                        <div class="g-recaptcha" data-sitekey="6LflUAkUAAAAAMifBeZ0Nv6U1UFD1aK9xFsJCUwp"></div>
+                        <span ng-show="CAPTCHANOTPASS" class="help=block error">You are NOT HUMAN!!! What Are You? :)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-6">
+                        <button type="submit" class="btn btn-md btn-default btn-send" ng-disabled="CaptchaForm.$invalid">Register</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-danger alert-dismissible fade in col-sm-offset-2 popAlerts" id="errorAlert" role="alert" ng-show="errorMessageToggle">
+                        <strong>ERROR: </strong> {{errorMessage}}
+                    </div>
+                    <br /><br />
+                </div>
+             </div>
+        </form>
+    </div>
+</main>
+<script src='https://www.google.com/recaptcha/api.js'></script>

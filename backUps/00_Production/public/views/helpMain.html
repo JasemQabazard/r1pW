@@ -1,0 +1,173 @@
+﻿<main ng-controller="HelpController">
+    <div class="row row-content">
+        <!---->
+        <!--HELP-->
+        <!---->
+        <form class="form-horizontal" role="form" name="helpForm" ng-submit="thankYou()">
+            <div class="col-xs-12 panel-group" id="accordion">
+                <div>
+                    <h1>Help</h1>
+                    <br /><br /><br />
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseRegistration">Site Registration</a>
+                        </h3>
+                    </div>
+                    <div id="collapseRegistration" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/captcha.png" alt="Registration recaptcha">
+                            <br />
+                            <ul>
+                                <li>On your first 3 visits to read1page.com web site you will be asked to pass the gooigle recaptcha challenge</li>
+                                <li>When you successfully pass it 3 times, the system will then allow you to enter and start reading your recital without more challenges</li>
+                                <li>This is necessary for security reasons, keeping the user experience optimal, and preventing robotic spam access to the web site </li>
+                                <li>Please help us keep the site secure so that the recitals are used by everyone and benefit all readers</li>
+                                <li>MAY GOD BLESS YOU</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">Start Here First</a>
+                        </h3>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/read.png" alt="read button image">
+                            <h3>On you first visit</h3>
+                            <ul>
+                                <li>The simplest way to start using read1page.com on your first visit is to press the READ button on the home page</li>
+                                <li>You will join all site users in a common Holly Quran recital; code name: "KHATMA". </li>
+                                <li>when you press READ you receive al-fatiha and one more page of the holly Quran to read</li>
+                                <li>once you read this one page you would have participated in a shared recital with everyone else</li>
+                                <li>your contribution was this one page.</li>
+                                <li>As you visit read1page.com later and press "READ"", you can continue to contribute to this common recital</li>
+                                <li>UNLESS YOU CHANGE THE RECITAL CODE, to other copmmon recitals or to your own recital code</li>
+                            </ul>
+                            <h3>If you change the recital code</h3>
+                            <ul>
+                                <li>Once you press READ you will participate in the recital code you changed to.</li>
+                                <li>See the enter recital code menu option 1, on this Help to find out how to change the recital code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseMenu">Option Menu Items</a>
+                        </h3>
+                    </div>
+                    <div id="collapseMenu" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/optionMenuItems.png" alt="option menu">
+                            <br />
+                            <p>
+                                <strong>The Option Menu will help advance users of read1page.com web site to further do the following operation to recital codes</strong>
+                                <ul>
+                                    <li>Change your recital code to what ever code you would like</li>
+                                    <li>Generate a new recital code to share between your friends or your family</li>
+                                    <li>To view the about page and see some statistics about read1page.com/li>
+                                    <li>View this help screen</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">Option Menu One - Change Recital Code</a>
+                        </h3>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/optionMenuItems_Enter.png" alt="change recital code form">
+                            <ul>
+                                <li>This is a very simple form to be used to change your current recital code</li>
+                                <li>The form has two fields to enter the same recital code twice for added security</li>
+                                <li>Then press SEND</li>
+                                <li>Once you change your recital code, the READ button on the home page will provide you pages according to the sequential readings of your current recital code</li>
+                                <li>You can change back to the common recital code "KHATMA", "KHATM2", "KHATM5", or any other recital code</li>
+                                <li>You may also receive a recital code from a friend to join his recital or you may decide to generate your own recital code from menu option 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">Option Menu Two - Generate New Recital Code</a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/optionMenuItems_New.png" alt="Generate a new recital code">
+                            <ul>
+                                <li>You can use this form to generate a new recital code, then share it with your friends or family</li>
+                                <li>Although we email your recital code to you when you generate it, Please remember your code and keep your email on record since we do not keep recital codes attached to your name in any way and we do not store your Email ID</li>
+                                <li>To generate a new recital code:</li>
+                                <li>Enter the number of pages you want for every press of the READ button on the home page, you can ask for 1, 2, or 5 sequential pages to be generated on every READ press</li>
+                                <li>Select if you would like or not, Al Fatiha as the first verse on every press of the READ button</li>
+                                <li>Supply your email twice, so that you receive an email with the newly generated recital code for safe keeping</li>
+                                <li>Press Generate</li>
+                                <li>Once you generate a new recital, your current recital code on the web site will be changed to the newly generated code</li>
+                                <li>The email will be sent to you, remember we do not keep your Email ID on store</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">Option Menu Three - About us</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/optionMenuItems_About.png" alt="About us form">
+                            <ul>
+                                <li>The About page descibes read1page.com web site with some details</li>
+                                <li>It also supply you with the latest statistics about readers and users of the site</li>
+                                <li>What is the total number of generated recital codes</li>
+                                <li>How many recitals were completed up to the moment</li>
+                                <li>How many pages were read to date</li>
+                                <li>How many Al Fatihas were read to date</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive">Read Navigation Buttons</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img class="img-responsive" src="images/help/ReadNavigation.png" alt="read Navigation Buttons">
+                            <br />
+                            <ul>
+                                <li>These navigation buttons will help you complete your reading of the pages supplied to you by the site when you press READ</li>
+                                <li>The left button advances you to the next page to be read, if any</li>
+                                <li>The right button takes you back to the previous page, if any</li>
+                                <li>Once you complete reading all the pages supplied to you, you must press the check mark (green) to tell the web site that these pages have been completely read</li>
+                                <li>If you do not complete reading your pages or read some of them, you can exit the web site and return later to complete your reading. ie the current pages will be kept for you unless of course you press the check mark (green) button </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <div class="col-xs-offset-5 col-xs-6 col-sm-offset-7 col-sm-4">
+                        <button type="submit" class="btn btn-default btn-sm btn-block btn-send">Thank You</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
