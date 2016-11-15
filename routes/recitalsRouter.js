@@ -62,7 +62,7 @@ recitalsRouter.get('/:crc', function (req, res, next) {
         if (recital) {
             res.json(recital);
         } else {
-            res.status(500).json({
+            return res.status(500).json({
                 err: 'Recital Code does not Exists'
             });
         }
@@ -73,10 +73,10 @@ recitalsRouter.post('/read1', function (req, res, next) {
     Recitals.findOne({ code: req.body.crc }, function (err, recital) {
         if (err) return next(err);
         if (!recital) {
-            if (req.body.generatedCode = "KHATMA") {
+            if (req.body.crc == "KHATMA") {
                 var recite = new Recitals({});
                 recite.code = "KHATM2";
-                recite.page = 1;
+                recite.page = 2;
                 recite.pages = 2;
                 recite.fatiha = true;
                 recite.save(function (err, recite) {
@@ -84,7 +84,7 @@ recitalsRouter.post('/read1', function (req, res, next) {
                 });
                 var rec = new Recitals({});
                 rec.code = "KHATM5";
-                rec.page = 1;
+                rec.page = 2;
                 rec.pages = 5;
                 rec.fatiha = true;
                 rec.save(function (err, rec) {
@@ -92,14 +92,14 @@ recitalsRouter.post('/read1', function (req, res, next) {
                 });
                 var recital = new Recitals({});
                 recital.code = "KHATMA";
-                recital.page = 33;
+                recital.page = 2;
                 recital.pages = 1;
                 recital.fatiha = true;
                 recital.save(function (err, recital) {
                     if (err) return next(err);
                 });
             } else {
-                res.status(500).json({
+                return res.status(500).json({
                     err: 'Recital Code does not Exists'
                 });
             }
@@ -108,7 +108,11 @@ recitalsRouter.post('/read1', function (req, res, next) {
             var completedRecitals = 0;
             recital.page += recital.pages;
             if (recital.page >= 604) {
-                recital.page = 1;
+				if (recital.fatiha){
+					recital.page = 2;
+					} else {
+						recital.page = 1;
+					}
                 completedRecitals++;
             }
             ReciTots.findOne(function (err, recitots) {

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var RecitalSchema = new Schema({
     code: { type: String },
-    page: { type: Number, min: 1, max: 604, required: true, default: 1 },
+    page: { type: Number, min: 1, max: 604, required: true, default: 2 },
     pages: { type: Number, min: 1, max: 5, required: true, default: 1 },
     fatiha: { type: Boolean, default: false }
 }, { timestamps: true });

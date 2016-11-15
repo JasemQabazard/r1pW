@@ -25,9 +25,17 @@ ul li {
 .cancelBtn {
        margin-top:5px !important;
 }
+.error{
+	color:red;
+}
+.btn-responsive {
+          margin-right:35px;
+}
 @media screen and (max-width: 500px) {
        .btn-responsive {
-          font-size:20px;}
+          font-size:20px;
+          margin-right:1px;
+       }
           .captchaStyle {
                 margin-left:0px;
                 transform:scale(0.77);

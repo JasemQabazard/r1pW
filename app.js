@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 var config = require('./config');
 
+
 mongoose.Promise = global.Promise;
 var dbURI = config.mongoUrl;
 if (process.env.NODE_ENV === "production") {
@@ -53,6 +54,13 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
+    // Support CORS
+    app.use(function (req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.header('Content-Type', 'application/json')
+        next();
+    });
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.json({
