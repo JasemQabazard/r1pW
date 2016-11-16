@@ -28,9 +28,6 @@ ul li {
 .error{
 	color:red;
 }
-.btn-responsive {
-          margin-right:35px;
-}
 @media screen and (max-width: 500px) {
        .btn-responsive {
           font-size:20px;

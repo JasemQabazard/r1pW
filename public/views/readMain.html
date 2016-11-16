@@ -2,7 +2,7 @@
     <main ng-init="readPages()">
         <div class="row row-content">
             <div>
-                <img class="img-responsive" id="verseImg" src="{{imgSrc}}" style="border:1px solid red">
+                <img class="img-responsive" id="verseImg" src="{{imgSrc}}" style="border:1px solid red; width:100%">
             </div>
             <div class="col-sm-offset-5 col-sm-1" ng-show="showSpinner">
                 <br />
@@ -19,21 +19,21 @@
         <div class="row row-content">
             <nav class="nav navbar navbar-default" role="navigation">
                 <ul class="nav nav-pills">
-                    <li>
+                    <li class="col-xs-offset-1 col-sm-offset-2 col-xs-3">
                         <a ng-click="movePagesLeft()">
-                            <i class="fa fa-chevron-left fa-2x btn-responsive" aria-hidden="true" style="color:brown"
+                            <i class="fa fa-chevron-left fa-2x btn-responsive button-block" aria-hidden="true" style="color:brown"
                                data-toggle="tooltip" uib-tooltip="Next Page" tooltip-placement="left"></i>
                         </a>
                     </li>
-                    <li class="col-xs-push-3">
+                    <li class="col-xs-3">
                         <a ng-click="finishedCurrentRead()">
-                            <i class="fa fa-check fa-2x btn-responsive" aria-hidden="true" style="color:forestgreen"
+                            <i class="fa fa-check fa-2x btn-responsive button-block" aria-hidden="true" style="color:forestgreen"
                                data-toggle="tooltip" uib-tooltip="Press When Completed Read" tooltip-placement="left"></i>
                         </a>
                     </li>
-                    <li class="col-xs-push-6">
+                    <li class="col-xs-3">
                         <a ng-click="movePagesRight()">
-                            <i class="fa fa-chevron-right fa-2x btn-responsive" aria-hidden="true" style="color:blue"
+                            <i class="fa fa-chevron-right fa-2x btn-responsive button-block" aria-hidden="true" style="color:blue"
                                data-toggle="tooltip" uib-tooltip="Previous Page" tooltip-placement="left"></i>
                         </a>
                     </li>
