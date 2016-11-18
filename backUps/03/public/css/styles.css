@@ -1,0 +1,42 @@
+body, html {
+    margin:0;
+    padding:0;
+    background-color:azure;
+}
+#divContainer {
+    max-width:755px;
+    height: 933px;
+    background: url("../images/r1p_FormBG.png") no-repeat center top scroll;
+    background-size: contain;
+}
+.nav {
+    margin:0;
+    padding:0;
+    background-color:lavender;
+}
+ul li {
+    margin:0;
+    padding:0;
+}
+.progressText {
+    color:blue;
+    font-weight:bold;
+}
+.cancelBtn {
+       margin-top:5px !important;
+}
+.error{
+	color:red;
+}
+@media screen and (max-width: 500px) {
+       .btn-responsive {
+          font-size:20px;
+          margin-right:1px;
+       }
+          .captchaStyle {
+                margin-left:0px;
+                transform:scale(0.77);
+                -webkit-transform:scale(0.77);
+                transform-origin:0 0;
+                -webkit-transform-origin:0 0;}
+}

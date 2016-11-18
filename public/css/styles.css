@@ -19,7 +19,7 @@ ul li {
     padding:0;
 }
 .progressText {
-    color:blue;
+    color:gainsboro;
     font-weight:bold;
 }
 .cancelBtn {
@@ -27,6 +27,30 @@ ul li {
 }
 .error{
 	color:red;
+}
+.button-khatma{
+    color:#c6a119;
+    border: 2px solid #c6a119;
+    margin-bottom:5px;
+}
+.button-khatm2{
+    color:brown;
+    border: 2px solid brown;
+    margin-bottom:5px;
+}
+.button-khatm5{
+    color:deeppink;
+    border: 2px solid deeppink;
+    margin-bottom:5px;
+}
+.progress-K1{
+    background-color:#c6a119;
+}
+.progress-K2{
+    background-color:brown;
+}
+.progress-K5{
+    background-color: deeppink;
 }
 @media screen and (max-width: 500px) {
        .btn-responsive {

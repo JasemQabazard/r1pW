@@ -12,9 +12,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main': {
                     templateUrl: 'views/indexMain.html',
                     controller: 'IndexController'
-                },
-                'footer': {
-                    templateUrl: 'views/indexFooter.html'
                 }
             }
         })
@@ -25,9 +22,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main@': {
                     templateUrl: 'views/aboutMain.html',
                     controller: 'AboutController'
-                },
-                'footer@': {
-                    template: ''
                 }
             }
         })
@@ -41,9 +35,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main@': {
                     templateUrl: 'views/captchaMain.html',
                     controller: 'IndexController'
-                },
-                'footer@': {
-                    template: ''
                 }
             }
         })
@@ -54,9 +45,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main@': {
                     templateUrl: 'views/helpMain.html',
                     controller: 'HelpController'
-                },
-                'footer@': {
-                    template: ''
                 }
             }
         })
@@ -68,9 +56,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main@': {
                     templateUrl: 'views/readMain.html',
                     controller: 'ReadController'
-                },
-                'footer@': {
-                    template: ''
                 }
             }
         })
@@ -81,9 +66,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main@': {
                     templateUrl: 'views/newMain.html',
                     controller: 'NewController'
-                },
-                'footer@': {
-                    template: ''
                 }
             }
         })
@@ -94,9 +76,6 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 'main@': {
                     templateUrl: 'views/entryMain.html',
                     controller: 'EntryController'
-                },
-                'footer@': {
-                    template: ''
                 }
             }
         });

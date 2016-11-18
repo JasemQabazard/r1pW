@@ -4,8 +4,8 @@ angular.module('r1p')
     // start of IndexController ------- 
     // -----------------
     //
-    .controller('IndexController', ['$scope', '$location', '$http', '$timeout', '$localStorage',
-                                    function ($scope, $location, $http, $timeout, $localStorage) {
+    .controller('IndexController', ['$scope', '$location', '$http', '$timeout', '$localStorage', '$rootScope',
+                                    function ($scope, $location, $http, $timeout, $localStorage, $rootScope) {
         var BEHAVIOR = "behavior";
         $scope.humanCheckDate = "";
         $scope.imageSrc = "images/r1p_landing.png";
@@ -17,7 +17,12 @@ angular.module('r1p')
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";
         $scope.CAPTCHANOTPASS = false;
-
+        $rootScope.directKhatma = "";
+        $scope.directRead = function (k) {
+            $rootScope.directKhatma = k;
+            console.log($rootScope.directKhatma);
+            $location.path('/read');
+        };
         var initStart = function () {
             var recitalCode = "KHATMA";
             $http.get('/recitals/' + recitalCode)
@@ -107,7 +112,8 @@ angular.module('r1p')
             $location.path('/');
         };
     }])
-    .controller('ReadController', ['$scope', '$location', '$localStorage', '$http', function ($scope, $location, $localStorage, $http) {
+    .controller('ReadController', ['$scope', '$location', '$localStorage', '$http', '$rootScope',
+                    function ($scope, $location, $localStorage, $http, $rootScope) {
         // key to store current recital code in local storage
         var CURRENT_RECITAL_CODE = "CurrentRecitalCode";
         // key to stores an object in the localstorage for current reading
@@ -133,7 +139,12 @@ angular.module('r1p')
         $scope.readPages = function () {
             $scope.currentRecitalRead = $localStorage.getObject(CURREENT_READING, '{}');
             if ($scope.currentRecitalRead.code === undefined) {
-                $scope.cRc.crc = $localStorage.get(CURRENT_RECITAL_CODE, '');   // get the recital code from local storage
+                if ($rootScope.directKhatma != "") {
+                    $scope.cRc.crc = $rootScope.directKhatma;
+                    $rootScope.directKhatma = "";
+                } else {
+                    $scope.cRc.crc = $localStorage.get(CURRENT_RECITAL_CODE, '');   // get the recital code from local storage
+                }
                 if (!$scope.cRc.crc) {
                     $scope.cRc.crc = "KHATMA";
                     $localStorage.store(CURRENT_RECITAL_CODE, $scope.cRc.crc);
