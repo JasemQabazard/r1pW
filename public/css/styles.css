@@ -29,16 +29,19 @@ ul li {
 	color:red;
 }
 .button-khatma{
+    background-color:antiquewhite;
     color:#c6a119;
     border: 2px solid #c6a119;
     margin-bottom:5px;
 }
 .button-khatm2{
+    background-color:antiquewhite;
     color:brown;
     border: 2px solid brown;
     margin-bottom:5px;
 }
 .button-khatm5{
+    background-color:antiquewhite;
     color:deeppink;
     border: 2px solid deeppink;
     margin-bottom:5px;
