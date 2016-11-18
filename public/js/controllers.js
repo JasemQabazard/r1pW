@@ -20,7 +20,6 @@ angular.module('r1p')
         $rootScope.directKhatma = "";
         $scope.directRead = function (k) {
             $rootScope.directKhatma = k;
-            console.log($rootScope.directKhatma);
             $location.path('/read');
         };
         var initStart = function () {
@@ -49,8 +48,6 @@ angular.module('r1p')
                 dateWasEmpty = true;
             }
             var diff = Math.abs(new Date() - new Date($scope.humanCheckDate));
-            console.log("diff is ");
-            console.log(diff);
             if (diff > 432000000 || dateWasEmpty) {
                 $location.path('/captcha');
             }
@@ -177,7 +174,6 @@ angular.module('r1p')
                 $scope.pagePointer = $scope.currentRecitalRead.page;
             }
             $scope.showSpinner = true;
-            console.log($scope.showSpinner);
             $scope.imgSrc = "images/" + $scope.pagePointer + ".jpg";
             $scope.showSpinner = false;
         };
