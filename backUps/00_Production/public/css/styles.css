@@ -19,15 +19,47 @@ ul li {
     padding:0;
 }
 .progressText {
-    color:blue;
+    color:gainsboro;
     font-weight:bold;
 }
 .cancelBtn {
        margin-top:5px !important;
 }
+.error{
+	color:red;
+}
+.button-khatma{
+    background-color:antiquewhite;
+    color:#c6a119;
+    border: 2px solid #c6a119;
+    margin-bottom:5px;
+}
+.button-khatm2{
+    background-color:antiquewhite;
+    color:brown;
+    border: 2px solid brown;
+    margin-bottom:5px;
+}
+.button-khatm5{
+    background-color:antiquewhite;
+    color:deeppink;
+    border: 2px solid deeppink;
+    margin-bottom:5px;
+}
+.progress-K1{
+    background-color:#c6a119;
+}
+.progress-K2{
+    background-color:brown;
+}
+.progress-K5{
+    background-color: deeppink;
+}
 @media screen and (max-width: 500px) {
        .btn-responsive {
-          font-size:20px;}
+          font-size:20px;
+          margin-right:1px;
+       }
           .captchaStyle {
                 margin-left:0px;
                 transform:scale(0.77);

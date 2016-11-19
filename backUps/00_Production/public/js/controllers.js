@@ -4,10 +4,10 @@ angular.module('r1p')
     // start of IndexController ------- 
     // -----------------
     //
-    .controller('IndexController', ['$scope', '$location', '$http', '$timeout', '$localStorage',
-                                    function ($scope, $location, $http, $timeout, $localStorage) {
+    .controller('IndexController', ['$scope', '$location', '$http', '$timeout', '$localStorage', '$rootScope',
+                                    function ($scope, $location, $http, $timeout, $localStorage, $rootScope) {
         var BEHAVIOR = "behavior";
-        $scope.humanCheck = 0;
+        $scope.humanCheckDate = "";
         $scope.imageSrc = "images/r1p_landing.png";
         $scope.progressPercentages = {
             K1: 0,
@@ -17,7 +17,11 @@ angular.module('r1p')
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";
         $scope.CAPTCHANOTPASS = false;
-
+        $rootScope.directKhatma = "";
+        $scope.directRead = function (k) {
+            $rootScope.directKhatma = k;
+            $location.path('/read');
+        };
         var initStart = function () {
             var recitalCode = "KHATMA";
             $http.get('/recitals/' + recitalCode)
@@ -30,19 +34,24 @@ angular.module('r1p')
                             recitalCode = "KHATM5";
                             $http.get('/recitals/' + recitalCode)
                                 .success(function (recital) {
-                                    $scope.progressPercentages.K5 = (100 * (recital.page / 604)).toFixed(0);;
+                                    $scope.progressPercentages.K5 = (100 * (recital.page / 604)).toFixed(0);
                                  })
                         })
                 });
-            $scope.humanCheck = $localStorage.get(BEHAVIOR, '');
-            if (!$scope.humanCheck) {
-                $scope.humanCheck = 0;
+        };
+        $timeout(initStart, 100);
+        $scope.checkBehaviour = function () {
+            $scope.humanCheckDate = $localStorage.get(BEHAVIOR, '');
+            var dateWasEmpty = false;
+            if (!$scope.humanCheckDate) {
+                $scope.humanCheckDate = new Date();
+                dateWasEmpty = true;
             }
-            if ($scope.humanCheck < 3) {
+            var diff = Math.abs(new Date() - new Date($scope.humanCheckDate));
+            if (diff > 432000000 || dateWasEmpty) {
                 $location.path('/captcha');
             }
         };
-        $timeout(initStart, 100);
         $scope.CaptchaEntry = function () {
             //
             // CAPTCHA pass false is pass 
@@ -60,8 +69,8 @@ angular.module('r1p')
                 $http.post('/security', recap)
                     .success(function () {
                         $scope.CAPTCHANOTPASS = false;
-                        $scope.humanCheck++;
-                        $localStorage.store(BEHAVIOR, $scope.humanCheck);
+                        $scope.humanCheckDate= new Date();
+                        $localStorage.store(BEHAVIOR, $scope.humanCheckDate);
                         $location.path('/');
                     })
                     .error(function (error) {
@@ -100,7 +109,8 @@ angular.module('r1p')
             $location.path('/');
         };
     }])
-    .controller('ReadController', ['$scope', '$location', '$localStorage', '$http', function ($scope, $location, $localStorage, $http) {
+    .controller('ReadController', ['$scope', '$location', '$localStorage', '$http', '$rootScope',
+                    function ($scope, $location, $localStorage, $http, $rootScope) {
         // key to store current recital code in local storage
         var CURRENT_RECITAL_CODE = "CurrentRecitalCode";
         // key to stores an object in the localstorage for current reading
@@ -114,6 +124,7 @@ angular.module('r1p')
         $scope.cRc = {
             crc:""
         };
+        $scope.showSpinner = false;
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";
         $scope.pagePointer = 0;    // page pointert for the current read for stepping through the pages 
@@ -125,7 +136,12 @@ angular.module('r1p')
         $scope.readPages = function () {
             $scope.currentRecitalRead = $localStorage.getObject(CURREENT_READING, '{}');
             if ($scope.currentRecitalRead.code === undefined) {
-                $scope.cRc.crc = $localStorage.get(CURRENT_RECITAL_CODE, '');   // get the recital code from local storage
+                if ($rootScope.directKhatma != "") {
+                    $scope.cRc.crc = $rootScope.directKhatma;
+                    $rootScope.directKhatma = "";
+                } else {
+                    $scope.cRc.crc = $localStorage.get(CURRENT_RECITAL_CODE, '');   // get the recital code from local storage
+                }
                 if (!$scope.cRc.crc) {
                     $scope.cRc.crc = "KHATMA";
                     $localStorage.store(CURRENT_RECITAL_CODE, $scope.cRc.crc);
@@ -153,30 +169,32 @@ angular.module('r1p')
         };
 
         var setUpInitialRead = function () {
-            var n = 1;
-            $scope.pagePointer = 0;
+            $scope.pagePointer = 1;
             if (!$scope.currentRecitalRead.fatiha) {
-                n = $scope.currentRecitalRead.page;
-                $scope.pagePointer = n;
+                $scope.pagePointer = $scope.currentRecitalRead.page;
             }
-            $scope.imgSrc = "images/" + n + ".jpg";
+            $scope.showSpinner = true;
+            $scope.imgSrc = "images/" + $scope.pagePointer + ".jpg";
+            $scope.showSpinner = false;
         };
         $scope.movePagesLeft = function () {
-            if ($scope.pagePointer == 0) {
+            if ($scope.pagePointer == 1) {
                 $scope.pagePointer = $scope.currentRecitalRead.page;
             } else if ($scope.pagePointer < $scope.currentRecitalRead.page + $scope.currentRecitalRead.pages - 1) {
                 $scope.pagePointer++;
                 if ($scope.pagePointer > 604) $scope.pagePointer--;
             }
+            $scope.showSpinner = true;
             $scope.imgSrc = "images/" + $scope.pagePointer + ".jpg";
+            $scope.showSpinner = false;
         };
         $scope.movePagesRight = function () {
-            if ($scope.pagePointer == 0) {
-                $scope.pagePointer = $scope.currentRecitalRead.page;
-            } else if ($scope.pagePointer > $scope.currentRecitalRead.page) {
+            if ($scope.pagePointer > $scope.currentRecitalRead.page) {
                 $scope.pagePointer--;
             }
+            $scope.showSpinner = true;
             $scope.imgSrc = "images/" + $scope.pagePointer + ".jpg";
+            $scope.showSpinner = false;
         };
         $scope.finishedCurrentRead = function () {
             $scope.currentRecitalRead.code = undefined;
@@ -230,6 +248,8 @@ angular.module('r1p')
     }])
     .controller('NewController', ['$scope', '$location', '$http', '$localStorage', 'codeGenerationService',
         function ($scope, $location, $http, $localStorage, codeGenerationService) {
+
+        $scope.showSpinner = false;
         var CURRENT_RECITAL_CODE = "CurrentRecitalCode";
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";

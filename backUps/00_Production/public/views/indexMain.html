@@ -1,7 +1,49 @@
-﻿<main ng-controller="IndexController">
+﻿<main ng-controller="IndexController" ng-init="checkBehaviour()">
     <div class="row row-content">
         <div>
             <img class="img-responsive" id="verseImg" src="{{imageSrc}}" alt="landing image">
         </div>
     </div>
+    <footer>
+        <div class="row row-content" style="background-color:grey; border:1px solid red">
+            <div class="col-xs-12">
+                <br />
+                <button type="button" class="btn button-khatma button-default btn-sm" ng-click="directRead('KHATMA')"><strong>Read KHATMA</strong></button>
+                <div class="progress">
+                    <div class="progress-bar progress-K1 progress-bar-striped progressText" role="progressbar"
+                         aria-valuenow="{{progressPercentages.K1}}" aria-valuemin="0" aria-valuemax="100"
+                         ng-style="{'width':progressPercentages.K1+'%'}">
+                        KHATMA <span>{{progressPercentages.K1}}</span>%
+                    </div>
+                </div>
+                <button type="button" class="btn button-khatm2 button-default btn-sm" ng-click="directRead('KHATM2')"><strong>Read KHATM2</strong></button>
+                <div class="progress">
+                    <div class="progress-bar progress-K2 progress-bar-striped progressText" role="progressbar"
+                         aria-valuenow="{{progressPercentages.K2}}" aria-valuemin="0" aria-valuemax="100"
+                         ng-style="{'width':progressPercentages.K2+'%'}">
+                        KHATM2 <span>{{progressPercentages.K2}}</span>%
+                    </div>
+                </div>
+                <button type="button" class="btn button-khatm5 button-default btn-sm" ng-click="directRead('KHATM5')"><strong>Read KHATM5</strong></button>
+                <div class="progress">
+                    <div class="progress-bar progress-K5 progress-bar-striped progressText" role="progressbar"
+                         aria-valuenow="{{progressPercentages.K5}}" aria-valuemin="0" aria-valuemax="100"
+                         ng-style="{'width':progressPercentages.K5+'%'}">
+                        KHATM5 <span>{{progressPercentages.K5}}</span>%
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12" style="background-color:deeppink">
+                <a>
+                    <i class="fa fa-youtube fa-2x  btn-responsive" style="color:white" aria-hidden="true"
+                       data-toggle="tooltip" uib-tooltip="watch our video Menu" tooltip-placement="left"></i>
+                </a>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                <a href="https://www.facebook.com/Quran-read-one-page-on-read1pagecom-157754620966501/?view_public_for=157754620966501">
+                    <i class="fa fa-facebook-official fa-2x  btn-responsive" style="color:white" aria-hidden="true"
+                       data-toggle="tooltip" uib-tooltip="like our page please" tooltip-placement="left"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 </main>
