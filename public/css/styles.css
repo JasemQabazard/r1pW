@@ -42,8 +42,8 @@ ul li {
 }
 .button-khatm5{
     background-color:antiquewhite;
-    color:deeppink;
-    border: 2px solid deeppink;
+    color:#6f289c;
+    border: 2px solid #6f289c;
     margin-bottom:5px;
 }
 .progress-K1{
@@ -53,7 +53,7 @@ ul li {
     background-color:brown;
 }
 .progress-K5{
-    background-color: deeppink;
+    background-color: #6f289c;
 }
 @media screen and (max-width: 500px) {
        .btn-responsive {
