@@ -8,7 +8,7 @@ angular.module('r1p')
                                     function ($scope, $location, $http, $timeout, $localStorage, $rootScope) {
         var BEHAVIOR = "behavior";
         $scope.humanCheckDate = "";
-        $scope.imageSrc = "images/r1p_landStyleJQ_02.png";
+        $scope.imageSrc = "images/r1p_landStyleJQ_03.png";
         $scope.progressPercentages = {
             K1: 0,
             K2: 0,
