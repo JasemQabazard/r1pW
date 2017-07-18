@@ -1,12 +1,12 @@
 {
   "name": "read1page",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "~4.5.0",
+    "node": "~6.11.1",
     "npm": "~3.10.5"
   },
   "dependencies": {
