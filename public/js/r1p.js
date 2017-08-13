@@ -25,6 +25,15 @@ angular.module('r1p', ['ui.router', 'validation.match', 'ui.bootstrap'])
                 }
             }
         })
+        // route for the free book download Memorize the Holy Quran
+        .state('r1p.download', {
+            url: 'download',
+            views: {
+                'main@': {
+                    templateUrl: 'views/downloadMain.html'
+                }
+            }
+        })
         // route for the captcha page
         .state('r1p.captcha', {
             url: 'captcha',
