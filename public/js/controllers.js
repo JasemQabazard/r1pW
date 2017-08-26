@@ -109,6 +109,11 @@ angular.module('r1p')
             $location.path('/');
         };
     }])
+    .controller('DownloadController', ['$scope', '$location', function ($scope, $location) {
+        $scope.nothankyou = function () {
+            $location.path('/');
+        };
+    }])
     .controller('ReadController', ['$scope', '$location', '$localStorage', '$http', '$rootScope',
                     function ($scope, $location, $localStorage, $http, $rootScope) {
         // key to store current recital code in local storage
