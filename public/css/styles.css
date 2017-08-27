@@ -72,8 +72,6 @@ ul li {
                 transform-origin:0 0;
                 -webkit-transform-origin:0 0;}
     .mediasize {
-        -ms-transform: scale(0.6,0.6); /* IE 9 */
-        -webkit-transform: scale(0.6,0.6); /* Safari */
-        transform: scale(0.6,0.6);
+        width=200px;
     }
 }
