@@ -214,6 +214,7 @@ angular.module('r1p')
         $scope.recitalCodeConfirm = "";
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";
+        $scope.progressPercentagesXYZ = 35;
         // retrieve the current recital code (crc) from storage
         // if no current recital code (crc) exists use "KHATMA", the genral code and 
         // save it in local storage
@@ -224,6 +225,10 @@ angular.module('r1p')
                 $scope.crc = "KHATMA";
                 $localStorage.store(CURRENT_RECITAL_CODE, $scope.crc);
             }
+            $http.get('/recitals/' + $scope.crc)
+                .success(function (recital) {
+                    $scope.progressPercentagesXYZ = (100 * (recital.page / 604)).toFixed(0);
+                })
         };
         // http check if the recital code exists in the recitals table
         // if exists store in local storage for future access

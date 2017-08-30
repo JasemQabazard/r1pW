@@ -17,6 +17,13 @@
                     <br />
                     <h4>Your Current Recital Code on File = </h4>
                     <h3><strong>{{crc}}</strong></h3>
+                    <div class="progress">
+                        <div class="progress-bar progress-XYZ progress-bar-striped progressText" role="progressbar"
+                             aria-valuenow="{{progressPercentagesXYZ}}" aria-valuemin="0" aria-valuemax="100"
+                             ng-style="{'width':progressPercentagesXYZ+'%'}">
+                            {{crc}} <span>{{progressPercentagesXYZ}}</span>%
+                        </div>
+                    </div>
                     <br /><br />
                 </div>
                 <div class="form-group has-feedback" ng-class="{'has-error': enterRecitalForm.recitalCode.$error.required && !enterRecitalForm.recitalCode.$pristine}">

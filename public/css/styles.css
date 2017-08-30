@@ -60,6 +60,9 @@ ul li {
 .progress-K5{
     background-color: #6f289c;
 }
+.progress-XYZ {
+    background-color: #2d8461;
+}
 @media screen and (max-width: 500px) {
        .btn-responsive {
           font-size:20px;
@@ -71,7 +74,4 @@ ul li {
                 -webkit-transform:scale(0.77);
                 transform-origin:0 0;
                 -webkit-transform-origin:0 0;}
-    .mediasize {
-        width=200px;
-    }
 }
