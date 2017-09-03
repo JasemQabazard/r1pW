@@ -10,9 +10,9 @@ angular.module('r1p')
         $scope.humanCheckDate = "";
         $scope.imageSrc = "images/r1p_landStyleJQ_03.png";
         $scope.progressPercentages = {
-            K1: 0,
-            K2: 0,
-            K5: 0
+            K1: 100,
+            K2: 100,
+            K5: 100
         };
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";
@@ -214,7 +214,7 @@ angular.module('r1p')
         $scope.recitalCodeConfirm = "";
         $scope.errorMessageToggle = false;
         $scope.errorMessage = "";
-        $scope.progressPercentagesXYZ = 35;
+        $scope.progressPercentagesXYZ = 100;
         // retrieve the current recital code (crc) from storage
         // if no current recital code (crc) exists use "KHATMA", the genral code and 
         // save it in local storage
