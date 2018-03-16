@@ -107,7 +107,7 @@ recitalsRouter.post('/read1', function (req, res, next) {
             var oldPageNo = recital.page;
             var completedRecitals = 0;
             recital.page += recital.pages;
-            if (recital.page >= 604) {
+            if (recital.page > 604) {
 				if (recital.fatiha){
 					recital.page = 2;
 					} else {
